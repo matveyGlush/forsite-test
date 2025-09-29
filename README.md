@@ -1,0 +1,1 @@
+# Vite Vue3 Pinia Test Project\nЗапуск: npm install && npm run dev\n
