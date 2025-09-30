@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Backend</title>
+  </head>
+  <body>
+    <h1>Backend</h1>
+    <h2>Даннные из форм</h2>
+    <ul id="data-list"></ul>
+
+    <script>
+      fetch('./data.json')
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (items) {
+          var list = document.getElementById('data-list');
+          if (!Array.isArray(items)) return;
+          items.forEach(function (item) {
+            let li = document.createElement('li');
+            let parts = Object.keys(item)
+              .filter(function (key) {
+                var value = item[key];
+                return (
+                  value !== null &&
+                  value !== undefined &&
+                  String(value).trim() !== ''
+                );
+              })
+              .map(function (key) {
+                return key + ': ' + item[key];
+              });
+            li.textContent = parts.join(' | ');
+            list.appendChild(li);
+          });
+        })
+        .catch(function (error) {
+          console.error('Failed to load data.json', error);
+        });
+    </script>
+  </body>
+</html>

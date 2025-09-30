@@ -1,0 +1,64 @@
+:root {
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-s: 12px;
+  --space-m: 16px;
+  --space-l: 24px;
+
+  --font-family-sans: Arial, sans-serif;
+  --font-size-base: 16px;
+  --font-size-sm: 12px;
+  --line-height-base: 1.5;
+
+  --color-bg: #0f172a; /* slate-900 */
+  --color-surface: #111827; /* gray-900 */
+  --color-text: #e5e7eb; /* gray-200 */
+  --color-text-muted: #9ca3af; /* gray-400 */
+  --color-border: #374151; /* gray-700 */
+  --color-primary: #60a5fa; /* blue-400 */
+  --color-primary-contrast: #0b1220;
+  --color-error: #ef4444; /* red-500 */
+}
+
+html, body, #app {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+input, select, textarea {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+
+button, .button, a.button {
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+  font-size: var(--font-size-base);
+  border: none;
+  border-radius: 4px;
+}
+
+nav a {
+  color: var(--color-text);
+}
+nav a.router-link-active {
+  color: var(--color-primary);
+}
+
+.small-muted { color: var(--color-text-muted); }
+.error-text { color: var(--color-error); }
+
+.container { padding: 20px; font-family: var(--font-family-sans) }
+nav a { margin-right: 8px; }
+input { display: block; margin-bottom: 10px; }
+.error { color: var(--color-error); font-size: 0.9em }
