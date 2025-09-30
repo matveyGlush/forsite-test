@@ -10,7 +10,7 @@ export class FormsService {
     console.log('Получены данные формы:', data);
 
     try {
-      const filePath = join(process.cwd(), 'data.json');
+      const filePath = join(process.cwd(), 'backend/src/data.json');
       let existingContent = '';
       existingContent = fs.readFileSync(filePath, 'utf-8').trim();
       let list: unknown = [];
