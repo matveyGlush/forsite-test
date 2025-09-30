@@ -1,0 +1,46 @@
+[
+  {
+    "name": "test",
+    "email": "",
+    "inn": "999777333999",
+    "phone": "+7 (994) 850-63-33"
+  },
+  {
+    "name": "test2",
+    "email": "",
+    "inn": "999777333991",
+    "phone": "+7 (994) 850-63-22"
+  },
+  {
+    "name": "test3",
+    "surname": "asdfdf",
+    "patronymic": "",
+    "dob": "11.11.2003",
+    "login": "asldfdsf",
+    "email": "adslf@masdf.ru"
+  },
+  {
+    "name": "weewrw",
+    "email": "",
+    "inn": "342342342342",
+    "phone": "+7 (324) 234-32-42"
+  },
+  {
+    "name": "weewrw",
+    "email": "",
+    "inn": "342342342342",
+    "phone": "+7 (324) 234-32-42"
+  },
+  {
+    "name": "weewrw",
+    "email": "",
+    "inn": "342342342342",
+    "phone": "+7 (324) 234-32-42"
+  },
+  {
+    "name": "weewrwtest",
+    "email": "",
+    "inn": "342342342342",
+    "phone": "+7 (324) 234-32-42"
+  }
+]

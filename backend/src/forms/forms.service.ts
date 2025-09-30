@@ -10,7 +10,7 @@ export class FormsService {
     console.log('Получены данные формы:', data);
 
     try {
-      const filePath = join(process.cwd(), 'data.json');
+      const filePath = join(process.cwd(), 'src/data.json');
       let existingContent = '';
       existingContent = fs.readFileSync(filePath, 'utf-8').trim();
       let list: unknown = [];
@@ -34,7 +34,9 @@ export class FormsService {
         classifier: 'cls-' + Math.random().toString(36).slice(2, 9),
       };
     } else {
-      return { error: 'Серверная ошибка: не удалось сохранить данные' };
+      return {
+        error: 'Серверная ошибка (вероятность 80%)',
+      };
     }
   }
 }

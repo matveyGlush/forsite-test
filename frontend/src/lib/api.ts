@@ -4,7 +4,11 @@ export type ServerSuccess = { requestId: string; classifier: string }
 export type ServerError = { error: string }
 
 export async function postFormA(data: FormAData): Promise<ServerSuccess | ServerError> {
-  const res = await fetch('http://localhost:3000/form/a', {
+  const url = import.meta.env.VITE_FORM_A_BACKEND_URL;
+  if (!url) {
+    return { error: 'FORM_A_BACKEND_URL is not defined' };
+  }
+  const res = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
@@ -13,7 +17,11 @@ export async function postFormA(data: FormAData): Promise<ServerSuccess | Server
 }
 
 export async function postFormB(data: FormBData): Promise<ServerSuccess | ServerError> {
-  const res = await fetch('http://localhost:3000/form/b', {
+  const url = import.meta.env.VITE_FORM_B_BACKEND_URL;
+  if (!url) {
+    return { error: 'FORM_A_BACKEND_URL is not defined' };
+  }
+  const res = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
