@@ -25,8 +25,7 @@ export async function postFormB(data: FormBData): Promise<ServerSuccess | Server
     method: 'POST',
     headers: { 
       'Content-Type': 'application/json',
-      'Host': 'forsite-test.vercel.app',
-      'Origin': 'https://forsite-test.vercel.app'
+      'Origin': 'https://forsite-test-546t.vercel.app'
     },
     body: JSON.stringify(data)
   })
