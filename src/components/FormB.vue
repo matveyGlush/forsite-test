@@ -1,30 +1,44 @@
 <template>
-  <div>
-    <h2>Форма B</h2>
-    <form @submit.prevent="onSubmit">
-      <label>Имя*<input v-model="data.name" /></label>
-      <div v-if="errors.name" class="error">{{ errors.name }}</div>
+  <div class="form-b">
+    <h2 class="form-b__title">Форма B</h2>
+    <form class="form-b__form" @submit.prevent="onSubmit">
+      <label class="form-b__label">Имя*
+        <input class="form-b__input" v-model="data.name" />
+      </label>
+      <div v-if="errors.name" class="form-b__error">{{ errors.name }}</div>
 
-      <label>Фамилия*<input v-model="data.surname" /></label>
-      <div v-if="errors.surname" class="error">{{ errors.surname }}</div>
+      <label class="form-b__label">Фамилия*
+        <input class="form-b__input" v-model="data.surname" />
+      </label>
+      <div v-if="errors.surname" class="form-b__error">{{ errors.surname }}</div>
 
-      <label>Отчество<input v-model="data.patronymic" /></label>
+      <label class="form-b__label">Отчество
+        <input class="form-b__input" v-model="data.patronymic" />
+      </label>
 
-      <label>Дата рождения*<input v-model="data.dob" placeholder="DD.MM.YYYY" /></label>
-      <div v-if="errors.dob" class="error">{{ errors.dob }}</div>
+      <label class="form-b__label">Дата рождения*
+        <input class="form-b__input" v-model="data.dob" placeholder="DD.MM.YYYY" />
+      </label>
+      <div v-if="errors.dob" class="form-b__error">{{ errors.dob }}</div>
 
-      <label>Логин*<input v-model="data.login" /></label>
-      <div v-if="errors.login" class="error">{{ errors.login }}</div>
+      <label class="form-b__label">Логин*
+        <input class="form-b__input" v-model="data.login" />
+      </label>
+      <div v-if="errors.login" class="form-b__error">{{ errors.login }}</div>
 
-      <label>Email*<input v-model="data.email" /></label>
-      <div v-if="errors.email" class="error">{{ errors.email }}</div>
+      <label class="form-b__label">Email*
+        <input class="form-b__input" v-model="data.email" />
+      </label>
+      <div v-if="errors.email" class="form-b__error">{{ errors.email }}</div>
 
-      <button :disabled="!isValid || sending">Отправить</button>
-      <div v-if="serverError" class="error">{{ serverError }}</div>
-      <div v-if="sending">Отправка...</div>
+      <div class="form-b__actions">
+        <button class="form-b__submit" :disabled="!isValid || sending">Отправить</button>
+        <div v-if="serverError" class="form-b__error">{{ serverError }}</div>
+        <div v-if="sending" class="form-b__sending">Отправка...</div>
+      </div>
     </form>
   </div>
-</template>
+ </template>
 
 <script lang="ts" setup>
 import { reactive, computed, ref, watch } from 'vue'
@@ -96,7 +110,4 @@ async function onSubmit() {
   }
 }
 </script>
-
-<style scoped>
-.error { color: red }
-</style>
+<style src="../styles/form-b.css"></style>

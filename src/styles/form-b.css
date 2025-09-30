@@ -1,0 +1,48 @@
+/* Google style guide */
+.form-b {
+  padding: 16px;
+}
+
+.form-b__title {
+  margin: 0 0 12px;
+}
+
+.form-b__form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  max-width: 420px;
+}
+
+.form-b__label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-b__input {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-b__error {
+  color: #c62828;
+  font-size: 12px;
+}
+
+.form-b__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.form-b__submit {
+  padding: 8px 12px;
+}
+
+.form-b__sending {
+  color: #555;
+}
+
+

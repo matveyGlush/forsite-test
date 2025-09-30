@@ -1,22 +1,32 @@
 <template>
-  <div>
-    <h2>Форма A</h2>
-    <form @submit.prevent="onSubmit">
-      <label>Имя*<input v-model="data.name" /></label>
-      <div v-if="errors.name" class="error">{{ errors.name }}</div>
+  <div class="form-a">
+    <h2 class="form-a__title">Форма A</h2>
+    <form class="form-a__form" @submit.prevent="onSubmit">
+      <label class="form-a__label">Имя*
+        <input class="form-a__input" v-model="data.name" />
+      </label>
+      <div v-if="errors.name" class="form-a__error">{{ errors.name }}</div>
 
-      <label>Email<input v-model="data.email" /></label>
-      <div v-if="errors.email" class="error">{{ errors.email }}</div>
+      <label class="form-a__label">Email
+        <input class="form-a__input" v-model="data.email" />
+      </label>
+      <div v-if="errors.email" class="form-a__error">{{ errors.email }}</div>
 
-      <label>ИНН*<input v-model="data.inn" /></label>
-      <div v-if="errors.inn" class="error">{{ errors.inn }}</div>
+      <label class="form-a__label">ИНН*
+        <input class="form-a__input" v-model="data.inn" />
+      </label>
+      <div v-if="errors.inn" class="form-a__error">{{ errors.inn }}</div>
 
-      <label>Телефон*<input v-model="data.phone" placeholder="+7 (XXX) XXX-XX-XX" /></label>
-      <div v-if="errors.phone" class="error">{{ errors.phone }}</div>
+      <label class="form-a__label">Телефон*
+        <input class="form-a__input" v-model="data.phone" placeholder="+7 (XXX) XXX-XX-XX" />
+      </label>
+      <div v-if="errors.phone" class="form-a__error">{{ errors.phone }}</div>
 
-      <button :disabled="!isValid || sending">Отправить</button>
-      <div v-if="serverError" class="error">{{ serverError }}</div>
-      <div v-if="sending">Отправка...</div>
+      <div class="form-a__actions">
+        <button class="form-a__submit" :disabled="!isValid || sending">Отправить</button>
+        <div v-if="serverError" class="form-a__error">{{ serverError }}</div>
+        <div v-if="sending" class="form-a__sending">Отправка...</div>
+      </div>
     </form>
   </div>
 </template>
@@ -82,7 +92,4 @@ async function onSubmit() {
   }
 }
 </script>
-
-<style scoped>
-.error { color: red }
-</style>
+<style src="../styles/form-a.css"></style>

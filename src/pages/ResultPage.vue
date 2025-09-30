@@ -1,12 +1,12 @@
 <template>
-  <div>
-    <h2>Результат отправки</h2>
+  <div class="result-page">
+    <h2 class="result-page__title">Результат отправки</h2>
     <div v-if="hasResult">
-      <p><strong>requestId:</strong> {{ requestId }}</p>
-      <p><strong>classifier:</strong> {{ classifier }}</p>
+      <p class="result-page__item"><strong>requestId:</strong> {{ requestId }}</p>
+      <p class="result-page__item"><strong>classifier:</strong> {{ classifier }}</p>
     </div>
     <div v-else>
-      <p>Результатов нет.</p>
+      <p class="result-page__empty">Результатов нет.</p>
     </div>
   </div>
 </template>
@@ -20,3 +20,5 @@ const requestId = computed(() => store.requestId)
 const classifier = computed(() => store.classifier)
 const hasResult = computed(() => !!store.requestId && !!store.classifier)
 </script>
+
+<style src="../styles/result-page.css"></style>
