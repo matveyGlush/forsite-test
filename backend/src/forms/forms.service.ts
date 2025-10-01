@@ -18,15 +18,12 @@ export class FormsService {
   }
 
   async processForm(data: FormADto | FormBDto) {
-    console.log('Получены данные формы:', data);
-
     const formType = 'inn' in data ? 'A' : 'B';
     try {
-      const resp = await this.formModel.create({
+      await this.formModel.create({
         type: formType,
         data: data,
       });
-      console.log(resp);
     } catch (err) {
       console.error('Не удалось записать данные формы в MongoDB:', err);
     }

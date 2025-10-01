@@ -5,7 +5,7 @@ export type ServerSuccess = { requestId: string; classifier: string }
 export type ServerError = { error: string }
 
 export async function postFormA(data: FormAData): Promise<ServerSuccess | ServerError> {
-  const url = import.meta.env.VITE_FORM_A_BACKEND_URL + 'a';
+  const url = import.meta.env.VITE_FORM_BACKEND_URL + 'a';
   if (!url) {
     return { error: 'FORM_A_BACKEND_URL is not defined' };
   }

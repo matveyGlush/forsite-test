@@ -9,7 +9,8 @@ const data = reactive<FormAData>({
   name: store.formAData.name || '',
   email: store.formAData.email || '',
   inn: store.formAData.inn || '',
-  phone: store.formAData.phone || ''
+  phone: store.formAData.phone || '',
+  _id: ''
 })
 const errors = reactive<{ [k: string]: string | null }>({ name: null, email: null, inn: null, phone: null })
 type FieldA = 'name' | 'email' | 'inn' | 'phone'

@@ -11,7 +11,8 @@ const data = reactive<FormBData>({
   patronymic: (store.formBData as any).patronymic || '',
   dob: store.formBData.dob || '',
   login: store.formBData.login || '',
-  email: store.formBData.email || ''
+  email: store.formBData.email || '',
+  _id: ''
 })
 const errors = reactive<{ [k: string]: string | null }>({ name: null, surname: null, dob: null, login: null, email: null })
 type FieldB = 'name' | 'surname' | 'dob' | 'login' | 'email'
