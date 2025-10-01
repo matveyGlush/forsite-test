@@ -7,7 +7,8 @@
       <router-link to="/">Главная</router-link> |
       <router-link to="/form/a">Форма A</router-link> |
       <router-link to="/form/b">Форма B</router-link> |
-      <router-link to="/result">Результаты</router-link>
+      <router-link to="/result">Результаты</router-link> |
+      <router-link to="/db">База данных</router-link>
     </nav>
     <router-view />
   </div>

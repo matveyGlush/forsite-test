@@ -14,7 +14,7 @@ const hasResultB = computed(() => !!store.requestIdB && !!store.classifierB)
 
 <template>
   <div class="result-page">
-    <h2 class="result-page__title">Результат отправки</h2>
+    <h2 class="result-page__title">Результат последней отправки</h2>
     <section class="result-block">
       <h3 class="result-page__subtitle">Форма A</h3>
       <div v-if="hasResultA">

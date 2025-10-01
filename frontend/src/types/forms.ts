@@ -3,6 +3,7 @@ export interface FormAData {
   email?: string
   inn: string
   phone: string
+  _id: string
 }
 
 export interface FormBData {
@@ -12,4 +13,5 @@ export interface FormBData {
   dob: string
   login: string
   email: string
+  _id: string
 }

@@ -1,31 +1,34 @@
-import { Injectable } from '@nestjs/common';
-import * as fs from 'fs';
-import { join } from 'path';
+import { Inject, Injectable } from '@nestjs/common';
+import { Model } from 'mongoose';
+import { Form } from './interfaces/form.interface';
 import { FormADto } from './dto/form-a.dto';
 import { FormBDto } from './dto/form-b.dto';
 
 @Injectable()
 export class FormsService {
-  processForm(data: FormADto | FormBDto) {
+  constructor(@Inject('FORM_MODEL') private readonly formModel: Model<Form>) {}
+
+  async create(data: FormADto): Promise<Form> {
+    const resp = this.formModel.create(data);
+    return resp;
+  }
+
+  async findAll(): Promise<Form[]> {
+    return this.formModel.find().exec();
+  }
+
+  async processForm(data: FormADto | FormBDto) {
     console.log('Получены данные формы:', data);
 
+    const formType = 'inn' in data ? 'A' : 'B';
     try {
-      const filePath = join(process.cwd(), 'backend/src/data.json');
-      let existingContent = '';
-      existingContent = fs.readFileSync(filePath, 'utf-8').trim();
-      let list: unknown = [];
-      if (existingContent.length > 0) {
-        try {
-          list = JSON.parse(existingContent);
-        } catch {
-          list = [];
-        }
-      }
-      const dataList = Array.isArray(list) ? list : [];
-      dataList.push(data as unknown as Record<string, unknown>);
-      fs.writeFileSync(filePath, JSON.stringify(dataList, null, 2), 'utf-8');
+      const resp = await this.formModel.create({
+        type: formType,
+        data: data,
+      });
+      console.log(resp);
     } catch (err) {
-      console.error('Не удалось записать данные формы в data.json:', err);
+      console.error('Не удалось записать данные формы в MongoDB:', err);
     }
 
     if (Math.random() < 0.8) {
