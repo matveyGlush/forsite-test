@@ -35,7 +35,7 @@ export class FormsService {
       };
     } else {
       return {
-        error: 'Серверная ошибка (вероятность 80%)',
+        error: 'Серверная ошибка (вероятность 20%)',
       };
     }
   }

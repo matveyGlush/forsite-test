@@ -26,8 +26,27 @@ watch(data, (v) => {
 const submitted = ref(false)
 const triedSubmit = ref(false)
 
-function validateName() { errors.name = data.name.trim() ? null : 'Имя обязательно' }
-function validateSurname() { errors.surname = data.surname.trim() ? null : 'Фамилия обязательна' }
+function validateName() {
+  if (!data.name.trim()) {
+    errors.name = 'Имя обязательно'
+    return
+  }
+  const re = /^[A-Za-zА-Яа-яЁё\s-]+$/
+  errors.name = re.test(data.name)
+    ? null
+    : 'Недопустимый символ!'
+}
+
+function validateSurname() {
+  if (!data.surname.trim()) {
+    errors.surname = 'Фамилия обязательна'
+    return
+  }
+  const re = /^[A-Za-zА-Яа-яЁё\s-]+$/
+  errors.surname = re.test(data.surname)
+    ? null
+    : 'Недопустимый символ!'
+}
 function validateDob() {
   const re = /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.(19|20)\d{2}$/
   if (!data.dob) { errors.dob = 'Дата рождения обязательна'; return }
@@ -41,13 +60,26 @@ function validateDob() {
   }
 }
 function validateLogin() {
-  if (!data.login) { errors.login = 'Логин обязателен'; return }
-  if (data.login.length < 6) { errors.login = 'Минимум 6 символов'; return }
-  if (!/^[A-Za-z0-9]+$/.test(data.login)) { errors.login = 'Только латиница и цифры'; return }
+  if (!data.login) {
+    errors.login = 'Логин обязателен'
+    return
+  }
+  if (data.login.length < 6) {
+    errors.login = 'Минимум 6 символов'
+    return
+  }
+  if (!/^[A-Za-z0-9]+$/.test(data.login)) {
+    errors.login = 'Только латиница и цифры'
+    return
+  }
   errors.login = null
 }
 function validateEmail() {
-  const re = /^\S+@\S+\.\S+$/
+  if (!data.email) {
+    errors.email = null
+    return
+  }
+  const re = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/
   errors.email = re.test(data.email) ? null : 'Неверный email'
 }
 

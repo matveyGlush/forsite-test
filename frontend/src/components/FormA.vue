@@ -24,10 +24,20 @@ watch(data, (v) => {
 const submitted = ref(false)
 const triedSubmit = ref(false)
 
-function validateName() { errors.name = data.name.trim() ? null : 'Имя обязательно' }
+function validateName() {
+  if (!data.name.trim()) {
+    errors.name = 'Имя обязательно'
+    return
+  }
+  const re = /^[A-Za-zА-Яа-яЁё\s-]+$/
+  errors.name = re.test(data.name) ? null : 'Недопустимый символ!'
+}
 function validateEmail() {
-  if (!data.email) { errors.email = null; return }
-  const re = /^\S+@\S+\.\S+$/
+  if (!data.email) {
+    errors.email = null
+    return
+  }
+  const re = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/
   errors.email = re.test(data.email) ? null : 'Неверный email'
 }
 function validateINN() {
